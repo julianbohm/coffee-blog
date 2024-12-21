@@ -21,3 +21,12 @@ class Rating(models.Model):
 
     def __str__(self):
         return f'{self.user} - {self.post} - {self.stars}'
+
+class Comment(models.Model):
+    post = models.ForeignKey(CoffeePost, on_delete=models.CASCADE, related_name='comments')  # Links to a blog post
+    author = models.ForeignKey(User, on_delete=models.CASCADE)  # Links to a user
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Comment by {self.author} on {self.post.title}"
