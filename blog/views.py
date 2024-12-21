@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import CoffeePost
+from django.views import generic
 from django.contrib.auth.decorators import login_required
+from .models import CoffeePost
 
 # Create your views here.
 
@@ -13,3 +14,7 @@ def create_post(request):
         CoffeePost.objects.create(title=title, description=description, author=request.user)
         return redirect('home')
         return render(request, 'create_post.html')
+
+class PostList(generic.ListView):
+    queryset = CoffeePost.objects.all()
+    template_name = "coffeepost_list.html"

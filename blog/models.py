@@ -11,8 +11,12 @@ class CoffeePost(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
     average_rating = models.FloatField(default=0.0)
 
+    
+    class Meta:
+        ordering = ["-date_posted"]
+
     def __str__(self):
-        return self.title
+        return f"{self.title} | written by {self.author}"
 
 class Rating(models.Model):
     post = models.ForeignKey(CoffeePost, related_name='ratings', on_delete=models.CASCADE)
@@ -26,7 +30,10 @@ class Comment(models.Model):
     post = models.ForeignKey(CoffeePost, on_delete=models.CASCADE, related_name='comments')  # Links to a blog post
     author = models.ForeignKey(User, on_delete=models.CASCADE)  # Links to a user
     content = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
+    date_posted = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["date_posted"]
 
     def __str__(self):
-        return f"Comment by {self.author} on {self.post.title}"
+        return f"Comment {self.body} by {self.author}"
