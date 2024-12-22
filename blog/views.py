@@ -17,4 +17,5 @@ def create_post(request):
 
 class PostList(generic.ListView):
     queryset = CoffeePost.objects.all()
-    template_name = "coffeepost_list.html"
+    template_name = "blog/index.html"
+    paginate_by = 6
