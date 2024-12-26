@@ -23,6 +23,8 @@ class Rating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     stars = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
 
+    class Meta:
+        unique_together = ['post', 'user']
     def __str__(self):
         return f'{self.user} - {self.post} - {self.stars}'
 
