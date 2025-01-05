@@ -19,6 +19,7 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", include("blog.urls"), name="blog-urls"),
+    path('admin/', admin.site.urls),  # Django admin URL
+    path("", include("welcome.urls")),   # Routes blog URLs to the blog app
+    path('blog/', include('blog.urls')),  # Routes welcome URLs to the welcome app
 ]

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% for post in posts %}
+<h2>{{ post.title }}</h2> 
+<p>by {{ post.author }}</p>
+{% endfor %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+</head>
+<body>
+    <h1>Welcome to Coffee Lovers Blog</h1>
+    
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}!</p>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <h2>Login to your account</h2>
+        
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Render the form here -->
+            <button type="submit">Login</button>
+        </form>
+        
+        <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+    {% endif %}
+</body>
+</html>
