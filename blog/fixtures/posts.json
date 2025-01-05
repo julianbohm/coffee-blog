@@ -1,0 +1,122 @@
+[
+    {
+        "model": "blog.coffeepost",
+        "pk": 1,
+        "fields": {
+            "title": "Starbucks Blonde Roast Delight",
+            "slug": "starbucks-blonde-roast-delight",
+            "description": "The smooth, mellow flavor of Starbucks Blonde Roast makes it a perfect choice for a gentle morning start.",
+            "author": 1,
+            "date_posted": "2024-12-26T08:00:00Z",
+            "average_rating": 4.6
+        }
+    },
+    {
+        "model": "blog.coffeepost",
+        "pk": 2,
+        "fields": {
+            "title": "Dunkin' Donuts Original Blend Review",
+            "slug": "dunkin-original-blend-review",
+            "description": "Dunkin's Original Blend is a classic. Its balanced and rich flavor never disappoints.",
+            "author": 2,
+            "date_posted": "2024-12-25T09:30:00Z",
+            "average_rating": 4.5
+        }
+    },
+    {
+        "model": "blog.coffeepost",
+        "pk": 3,
+        "fields": {
+            "title": "Lavazza Super Crema Espresso Beans",
+            "slug": "lavazza-super-crema-espresso",
+            "description": "Lavazza's Super Crema is perfect for espresso lovers. Its creamy finish and rich flavor are unbeatable.",
+            "author": 1,
+            "date_posted": "2024-12-24T12:00:00Z",
+            "average_rating": 4.9
+        }
+    },
+    {
+        "model": "blog.coffeepost",
+        "pk": 4,
+        "fields": {
+            "title": "Peet's Coffee Major Dickason's Blend",
+            "slug": "peets-major-dickasons-blend",
+            "description": "A bold and flavorful blend, Peet's Major Dickason's is perfect for those who enjoy a robust coffee experience.",
+            "author": 2,
+            "date_posted": "2024-12-23T08:45:00Z",
+            "average_rating": 4.7
+        }
+    },
+    {
+        "model": "blog.coffeepost",
+        "pk": 5,
+        "fields": {
+            "title": "Nespresso Arpeggio Capsules Review",
+            "slug": "nespresso-arpeggio-capsules",
+            "description": "Nespresso's Arpeggio capsules deliver a dark, intense espresso experience that's full of character.",
+            "author": 1,
+            "date_posted": "2024-12-22T10:30:00Z",
+            "average_rating": 4.8
+        }
+    },
+    {
+        "model": "blog.coffeepost",
+        "pk": 6,
+        "fields": {
+            "title": "Folgers Classic Roast: A Timeless Choice",
+            "slug": "folgers-classic-roast",
+            "description": "Folgers Classic Roast offers a reliable and smooth coffee flavor that has stood the test of time.",
+            "author": 2,
+            "date_posted": "2024-12-21T07:00:00Z",
+            "average_rating": 4.3
+        }
+    },
+    {
+        "model": "blog.coffeepost",
+        "pk": 7,
+        "fields": {
+            "title": "Blue Bottle Coffee Bella Donovan",
+            "slug": "blue-bottle-bella-donovan",
+            "description": "A smooth and slightly fruity blend, Bella Donovan by Blue Bottle Coffee is a treat for the senses.",
+            "author": 1,
+            "date_posted": "2024-12-20T11:15:00Z",
+            "average_rating": 4.9
+        }
+    },
+    {
+        "model": "blog.coffeepost",
+        "pk": 8,
+        "fields": {
+            "title": "Death Wish Coffee: The World's Strongest Brew",
+            "slug": "death-wish-coffee-review",
+            "description": "For those who need an extreme caffeine kick, Death Wish Coffee delivers bold flavor and intensity.",
+            "author": 2,
+            "date_posted": "2024-12-19T06:45:00Z",
+            "average_rating": 4.6
+        }
+    },
+    {
+        "model": "blog.coffeepost",
+        "pk": 9,
+        "fields": {
+            "title": "Tim Hortons Original Blend Review",
+            "slug": "tim-hortons-original-blend",
+            "description": "A smooth and balanced brew, Tim Hortons Original Blend is a Canadian favorite for a reason.",
+            "author": 1,
+            "date_posted": "2024-12-18T08:30:00Z",
+            "average_rating": 4.4
+        }
+    },
+    {
+        "model": "blog.coffeepost",
+        "pk": 10,
+        "fields": {
+            "title": "Illy Classico Medium Roast Review",
+            "slug": "illy-classico-medium-roast",
+            "description": "Illy's Classico Medium Roast offers a perfectly balanced and aromatic coffee experience.",
+            "author": 2,
+            "date_posted": "2024-12-17T09:00:00Z",
+            "average_rating": 4.8
+        }
+    }
+]

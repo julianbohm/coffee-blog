@@ -1,0 +1,93 @@
+/* Blog Stylesheet with Bootstrap Integration */
+
+/* Root Variables */
+:root {
+    --deep-green: #43723f;
+    --brown: #B87d4B;
+    --gold: #FFBF00;
+    --dark-maroon: #2E0E02;
+    --silk: #fff9d7;
+}
+
+/* Bootstrap Overrides */
+body {
+    background-color: var(--silk);
+    color: var(--silk);
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--deep-green) !important;
+    border-bottom: 2px solid var(--gold);
+}
+
+.navbar-brand {
+    color: var(--silk) !important;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: var(--silk) !important;
+    margin-right: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--gold) !important;
+}
+
+.navbar-toggler {
+    border-color: var(--silk);
+}
+
+.navbar-toggler-icon {
+    background-image: none;
+    color: var(--silk);
+}
+
+/* Main Content Section */
+.container {
+    background-color: var(--brown);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.container h2 {
+    color: var(--gold);
+}
+
+.container p {
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-maroon);
+    color: var(--silk);
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 2px solid var(--gold);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn {
+    background-color: var(--gold);
+    color: var(--dark-maroon);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--brown);
+    color: var(--silk);
+}

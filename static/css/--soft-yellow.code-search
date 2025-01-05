@@ -1,0 +1,41 @@
+# Query: --soft-yellow
+# ContextLines: 1
+
+9 results - 1 file
+
+static/css/style.css:
+    8      --dark-maroon: #2E0E02;
+    9:     --silk: #fff9d7;
+   10  }
+
+   14      background-color: var(--deep-green);
+   15:     color: var(--silk);
+   16      font-family: Arial, sans-serif;
+
+   21      background-color: var(--dark-maroon);
+   22:     color: var(--silk);
+   23      text-align: center;
+
+   43  .navbar-brand {
+   44:     color: var(--silk) !important;
+   45      font-weight: bold;
+
+   48  .navbar-nav .nav-link {
+   49:     color: var(--silk) !important;
+   50      margin-right: 1rem;
+
+   58  .navbar-toggler {
+   59:     border-color: var(--silk);
+   60  }
+
+   63      background-image: none;
+   64:     color: var(--silk);
+   65  }
+
+   85      background-color: var(--dark-maroon);
+   86:     color: var(--silk);
+   87      text-align: center;
+
+  109      background-color: var(--brown);
+  110:     color: var(--silk);
+  111  }
