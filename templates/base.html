@@ -1,5 +1,10 @@
 {% load static %}
 
+{% url 'home' as home_url %}
+{% url 'about' as about_url %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,36 +28,44 @@
 </head>
 <body>
     <!-- Navbar Section -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Coffee Lovers</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">Coffee Lovers</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/blog/templates/blog/index.html">Home</a>
-                    </li>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}" href="{% url 'home' %}"
+                            href="#">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">User Name</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
-                    </li>
+                      {% if user.is_authenticated %}
+                      <li class="nav-item">
+                          <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}">Logout</a>
+                      </li>
+                      {% else %}
+                      <li class="nav-item">
+                          <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}"
+                              href="{% url 'account_signup' %}">Register</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_login' %}">Login</a>
+                      </li>
+                      {% endif %}
+
                 </ul>
+                <span class="navbar-text text-muted">
+                    Coffee is not a Drink is a Moment.
+                </span>
             </div>
         </div>
     </nav>
-
-    <!-- Main Content Section -->
-    <div class="container my-5">
-        <h2>Main Content Area</h2>
-        <p>This is where your main content will go. You can add text, images, and other elements here.</p>
-    </div>
+    {% block content %}
+    <!-- Content Goes here -->
+    {% endblock content %}
+   
 
     <!-- Footer Section -->
     <footer class="bg-dark text-white text-center py-3">

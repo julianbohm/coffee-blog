@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),  # Django admin URL
     path("", include("welcome.urls")),   # Routes blog URLs to the blog app
     path('blog/', include('blog.urls')),  # Routes welcome URLs to the welcome app
+    path('accounts/', include('allauth.urls')),
 ]
