@@ -2,18 +2,23 @@
 
 /* Root Variables */
 :root {
-    --deep-green: #43723f;
-    --brown: #B87d4B;
-    --gold: #FFBF00;
-    --dark-maroon: #77361e;
-    --silk: #fff9d7;
+    --deep-green: #394d39;
+    --olive-green: #C7B878;
+    --gold: #E3AF3E;
+    --dark-brown: #2F3E2E;
+    --beige: #F3E9D2;
+    text-decoration: none;
 }
 
 /* Bootstrap Overrides */
 body {
-    background-color: var(--silk);
-    color: var(--dark-maroon);
+    background-color: var(--beige);
+    color: var(--dark-brown);
     font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* Navbar */
@@ -23,12 +28,12 @@ body {
 }
 
 .navbar-brand {
-    color: var(--silk) !important;
+    color: var(--beige) !important;
     font-weight: bold;
 }
 
 .navbar-nav .nav-link {
-    color: var(--silk) !important;
+    color: var(--beige) !important;
     margin-right: 1rem;
     transition: color 0.3s;
 }
@@ -38,18 +43,22 @@ body {
 }
 
 .navbar-toggler {
-    border-color: var(--silk);
+    border-color: var(--beige);
 }
 
 .navbar-toggler-icon {
     background-image: none;
-    color: var(--silk);
+    color: var(--beige);
+}
+
+.navbar-text {
+    color: var(--beige) 
 }
 
 /* Main Content Section */
 .container {
-    background-color: var(--brown);
-    color: var(--silk);
+    background-color: var(--olive-green);
+    color: var(--beige);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -57,7 +66,7 @@ body {
 }
 
 .container h2 {
-    color: var(--dark-maroon);
+    color: var(--deep-green);
 }
 
 .container p {
@@ -66,23 +75,33 @@ body {
 
 .card-body {
     background-color: var(--gold);
+    color: var(--deep-green);
     text-align: center;
+    padding: 50px;
 }
 
 /* For images in the post detail page */
 .card-img-top {
     width: 100%; 
-    max-width: 500px; 
+    max-width: 300px; 
     height: auto; 
     margin: 0 auto; 
     display: block; 
     text-align: center;
 }
 
+/* For images in the post list */
+.card-img-list {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
 /* Footer */
 footer {
-    background-color: var(--dark-maroon);
-    color: var(--silk);
+    background-color: var(--dark-brown);
+    color: var(--beige);
     text-align: center;
     padding: 1rem 0;
     border-top: 2px solid var(--gold);
@@ -98,6 +117,7 @@ footer p {
     background-color:  var(--deep-green);
     color: var(--gold);
     border: none;
+    margin:  4px;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
@@ -105,6 +125,56 @@ footer p {
 }
 
 .btn:hover {
-    background-color: var(--brown);
-    color: var(--silk);
+    background-color: var(--olive-green);
+    color: var(--beige);
+}
+
+form {
+    text-align: center;
+}
+
+/* Pagination */
+.pagination .page-link {
+    background-color: var(--deep-green);
+    color: var(--gold);
+    border: none;
+    border-radius: 4px;
+    margin: 0 2px;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--olive-green);
+    color: var(--beige);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--gold);
+    color: var(--deep-green);
+}
+
+/* Post Titles */
+h2.card-title {
+    font-size: 1.5rem;
+    color: var(--dark-brown);
+}
+
+/* Card Styling */
+.card {
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+/* Excerpt Styling */
+.card-text {
+    font-size: 0.9rem;
+    color: var(--dark-brown);
+    margin-top: 0.5rem;
+    line-height: 1.4;
 }

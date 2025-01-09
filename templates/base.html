@@ -1,7 +1,6 @@
 {% load static %}
 
 {% url 'home' as home_url %}
-{% url 'about' as about_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -38,26 +37,30 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}" href="{% url 'home' %}"
-                            href="#">Home</a>
+                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{% url 'home' %}">Home</a>
                     </li>
-                      {% if user.is_authenticated %}
-                      <li class="nav-item">
-                          <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}">Logout</a>
-                      </li>
-                      {% else %}
-                      <li class="nav-item">
-                          <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}"
-                              href="{% url 'account_signup' %}">Register</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_login' %}">Login</a>
-                      </li>
-                      {% endif %}
-
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == 'user_profile' %}active{% endif %}" href="{% url 'user_profile' %}">
+                            {{ user.username }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
                 </ul>
                 <span class="navbar-text text-muted">
-                    Coffee is not a Drink is a Moment.
+                    {% if not user.is_authenticated %}
+                    Coffee is not a Drink; it's a Moment.
+                    {% endif %}
                 </span>
             </div>
         </div>

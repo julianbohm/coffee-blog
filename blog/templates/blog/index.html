@@ -26,13 +26,14 @@
                                   alt="{{ post.title }}">
                                 {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
+                                    <p class="author"><strong> Author: {{ post.author }}</strong></p>
                                 </div>
                             </div>
                            
                             <hr />
                             <p class="card-text text-muted h6">{{ post.created_on}}
                             </p>
+                            <p><strong>Rating:</strong> {{ post.average_rating|default:"No rating yet" }}</p>
                         </div>
                     </div>
                 </div>
@@ -51,7 +52,7 @@
             {% if page_obj.has_previous %}
     <li>
         <a href="?page={{ page_obj.previous_page_number }}"
-          class="page-link">&laquo; PREV</a>
+          class="page-link btn">&laquo; PREV</a>
     </li>
     {% endif %}
             {% if page_obj.has_next %}

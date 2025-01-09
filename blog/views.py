@@ -27,3 +27,12 @@ class PostList(generic.ListView):
 def post_detail(request, slug):
     post = get_object_or_404(CoffeePost, slug=slug)
     return render(request, 'blog/post_detail.html', {'post': post})
+
+@login_required
+def user_profile(request):
+    user_posts = CoffeePost.objects.filter(author=request.user)
+    context = {
+        'user': request.user,
+        'user_posts': user_posts,
+    }
+    return render(request, 'blog/user_profile.html', context)
