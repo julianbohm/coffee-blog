@@ -1,15 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Avg
 
 # Create your models here.
 
 class CoffeePost(models.Model):
+    """
+    stores a single blog post related to :model:auth.user".
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     description = models.TextField()
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
+    image_url = models.CharField(max_length=500, default='coffe_default.jpg')  # Store the image URL
     date_posted = models.DateTimeField(auto_now_add=True)
     average_rating = models.FloatField(default=0.0)
 
@@ -27,6 +32,19 @@ class Rating(models.Model):
 
     class Meta:
         unique_together = ['post', 'user']
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        # Update average rating for the related CoffeePost
+        self.post.average_rating = self.post.ratings.aggregate(Avg('stars'))['stars__avg'] or 0.0
+        self.post.save()
+
+    def delete(self, *args, **kwargs):
+        super().delete(*args, **kwargs)
+        # Recalculate average rating after deleting
+        self.post.average_rating = self.post.ratings.aggregate(Avg('stars'))['stars__avg'] or 0.0
+        self.post.save()
+
     def __str__(self):
         return f'{self.user} - {self.post} - {self.stars}'
 
@@ -40,4 +58,4 @@ class Comment(models.Model):
         ordering = ["date_posted"]
 
     def __str__(self):
-        return f"Comment {self.body} by {self.author}"
+        return f"Comment {self.content} by {self.author}"
