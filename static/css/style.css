@@ -53,6 +53,7 @@ body {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .container h2 {
@@ -65,6 +66,17 @@ body {
 
 .card-body {
     background-color: var(--gold);
+    text-align: center;
+}
+
+/* For images in the post detail page */
+.card-img-top {
+    width: 100%; 
+    max-width: 500px; 
+    height: auto; 
+    margin: 0 auto; 
+    display: block; 
+    text-align: center;
 }
 
 /* Footer */
