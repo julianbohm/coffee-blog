@@ -5,14 +5,14 @@
     --deep-green: #43723f;
     --brown: #B87d4B;
     --gold: #FFBF00;
-    --dark-maroon: #2E0E02;
+    --dark-maroon: #77361e;
     --silk: #fff9d7;
 }
 
 /* Bootstrap Overrides */
 body {
     background-color: var(--silk);
-    color: var(--silk);
+    color: var(--dark-maroon);
     font-family: Arial, sans-serif;
 }
 
@@ -49,7 +49,7 @@ body {
 /* Main Content Section */
 .container {
     background-color: var(--brown);
-    color: #2E0E02;
+    color: var(--silk);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -64,7 +64,7 @@ body {
 }
 
 .card-body {
-    background-color: #2E0E02;
+    background-color: var(--gold);
 }
 
 /* Footer */
@@ -83,8 +83,8 @@ footer p {
 
 /* Buttons */
 .btn {
-    background-color: red;
-    color: var(--dark-maroon);
+    background-color:  var(--deep-green);
+    color: var(--gold);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;

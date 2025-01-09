@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Avg
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -14,7 +15,7 @@ class CoffeePost(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
-    image_url = models.CharField(max_length=500, default='coffe_default.jpg')  # Store the image URL
+    featured_image = CloudinaryField('image', default='placeholder') 
     date_posted = models.DateTimeField(auto_now_add=True)
     average_rating = models.FloatField(default=0.0)
 
