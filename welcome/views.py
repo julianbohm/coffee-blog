@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
@@ -24,7 +25,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('index')  # Redirect to home after login
+            return redirect('home')  # Redirect to home after login
     else:
         form = AuthenticationForm()
     return render(request, 'welcome.html', {'form': form})
