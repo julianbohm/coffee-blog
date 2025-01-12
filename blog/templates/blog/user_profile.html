@@ -12,10 +12,11 @@
                 {% for post in user_posts %}
                 <div class="col-md-6">
                     <div class="card h-100 shadow-sm border-0">
-                        <!-- Post Image -->
-                        <img src="{{ post.image_url|default:'https://via.placeholder.com/300' }}" 
-                             alt="{{ post.title }}" 
-                             class="card-img-top rounded-top">
+                        <div class="text-center mb-4">
+                            <img class="card-img-top img-fluid rounded shadow" 
+                                 src="{% static 'images/coffee_default.jpg' %}" 
+                                 alt="placeholder image">
+                        </div>
                         
                         <!-- Post Content -->
                         <div class="card-body">
