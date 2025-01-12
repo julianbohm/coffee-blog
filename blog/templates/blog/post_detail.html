@@ -2,13 +2,34 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-    <h1>{{ post.title }}</h1>
-    <img class="card-img-top" src="{% static 'images/coffee_default.jpg' %}"
-    alt="placeholder image">
-    <p><strong>Author:</strong> {{ post.author }}</p>
-    <p><strong>Posted on:</strong> {{ post.date_posted }}</p>
-    <p><strong>Rating:</strong> {{ post.average_rating|default:"No rating yet" }}/5</p>
-    <p>{{ post.description }}</p>
+<div class="container py-5">
+    <!-- Post Title -->
+    <h1 class="display-4 text-center mb-4">{{ post.title }}</h1>
+
+    <!-- Post Image -->
+    <div class="text-center mb-4">
+        <img class="card-img-top img-fluid rounded shadow" 
+             src="{% static 'images/coffee_default.jpg' %}" 
+             alt="placeholder image">
+    </div>
+
+    <!-- Post Metadata -->
+    <div class="d-flex justify-content-center mb-3">
+        <p class="me-3">
+            <strong>Author:</strong> <span class="text-muted">{{ post.author }}</span>
+        </p>
+        <p class="me-3">
+            <strong>Posted on:</strong> 
+            <time class="text-muted">{{ post.date_posted }}</time>
+        </p>
+        <p>
+            <strong>Rating:</strong> <span class="text-muted">{{ post.average_rating|default:"No rating yet" }}</span>
+        </p>
+    </div>
+
+    <!-- Post Description -->
+    <div class="card shadow border-0 rounded-3 p-4">
+        <p class="text-muted mb-0">{{ post.description }}</p>
+    </div>
 </div>
 {% endblock %}
