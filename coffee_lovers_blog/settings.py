@@ -48,13 +48,14 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'cloudinary',
+    'django_summernote',
     'blog',
     'welcome',
 ]
     
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/welcome/'
+LOGOUT_REDIRECT_URL = '/welcome/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -16,14 +16,13 @@ def create_post(request):
     return render(request, 'create_post.html')
 
 
-
 class PostList(generic.ListView):
     model = CoffeePost
     context_object_name = 'posts'
     paginate_by = 9
     template_name = "blog/index.html"
 
-
+@login_required
 def post_detail(request, slug):
     post = get_object_or_404(CoffeePost, slug=slug)
     return render(request, 'blog/post_detail.html', {'post': post})

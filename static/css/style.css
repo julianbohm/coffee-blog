@@ -157,8 +157,8 @@ h2.card-title {
 
 /* Card Styling */
 .card {
-    border: 1px solid var(--gold);
-    border-radius: 8px;
+    border: 3px solid var(--gold);
+    border-radius: 8px;  
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -174,4 +174,16 @@ h2.card-title {
     color: var(--dark-brown);
     margin-top: 0.5rem;
     line-height: 1.4;
+}
+
+@media (max-width: 300px) {
+    .card-text {
+        display: none;
+    }
+    .btn {
+        font-size: 0.85rem;
+    }
+    .card-title {
+        font-size: 1rem;
+    }
 }

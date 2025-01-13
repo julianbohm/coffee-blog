@@ -7,6 +7,7 @@
             "slug": "starbucks-blonde-roast-delight",
             "description": "The smooth, mellow flavor of Starbucks Blonde Roast makes it a perfect choice for a gentle morning start.",
             "author": 2,
+            "featured_image": "",
             "date_posted": "2024-12-26T08:00:00Z",
             "average_rating": 4.6
         }
@@ -19,6 +20,7 @@
             "slug": "dunkin-original-blend-review",
             "description": "Dunkin's Original Blend is a classic. Its balanced and rich flavor never disappoints.",
             "author": 2,
+            "featured_image": "",
             "date_posted": "2024-12-25T09:30:00Z",
             "average_rating": 4.5
         }
@@ -31,6 +33,7 @@
             "slug": "lavazza-super-crema-espresso",
             "description": "Lavazza's Super Crema is perfect for espresso lovers. Its creamy finish and rich flavor are unbeatable.",
             "author": 3,
+            "featured_image": "",
             "date_posted": "2024-12-24T12:00:00Z",
             "average_rating": 4.9
         }
@@ -43,6 +46,7 @@
             "slug": "peets-major-dickasons-blend",
             "description": "A bold and flavorful blend, Peet's Major Dickason's is perfect for those who enjoy a robust coffee experience.",
             "author": 4,
+            "featured_image": "",
             "date_posted": "2024-12-23T08:45:00Z",
             "average_rating": 4.7
         }
@@ -55,6 +59,7 @@
             "slug": "nespresso-arpeggio-capsules",
             "description": "Nespresso's Arpeggio capsules deliver a dark, intense espresso experience that's full of character.",
             "author": 5,
+            "featured_image": "",
             "date_posted": "2024-12-22T10:30:00Z",
             "average_rating": 4.8
         }
@@ -67,6 +72,7 @@
             "slug": "folgers-classic-roast",
             "description": "Folgers Classic Roast offers a reliable and smooth coffee flavor that has stood the test of time.",
             "author": 3,
+            "featured_image": "",
             "date_posted": "2024-12-21T07:00:00Z",
             "average_rating": 4.3
         }
@@ -79,6 +85,7 @@
             "slug": "blue-bottle-bella-donovan",
             "description": "A smooth and slightly fruity blend, Bella Donovan by Blue Bottle Coffee is a treat for the senses.",
             "author": 5,
+            "featured_image": "",
             "date_posted": "2024-12-20T11:15:00Z",
             "average_rating": 4.9
         }
@@ -91,6 +98,7 @@
             "slug": "death-wish-coffee-review",
             "description": "For those who need an extreme caffeine kick, Death Wish Coffee delivers bold flavor and intensity.",
             "author": 2,
+            "featured_image": "",
             "date_posted": "2024-12-19T06:45:00Z",
             "average_rating": 4.6
         }
@@ -103,6 +111,7 @@
             "slug": "tim-hortons-original-blend",
             "description": "A smooth and balanced brew, Tim Hortons Original Blend is a Canadian favorite for a reason.",
             "author": 4,
+            "featured_image": "",
             "date_posted": "2024-12-18T08:30:00Z",
             "average_rating": 4.4
         }
@@ -115,8 +124,61 @@
             "slug": "illy-classico-medium-roast",
             "description": "Illy's Classico Medium Roast offers a perfectly balanced and aromatic coffee experience.",
             "author": 3,
+            "featured_image": "",
             "date_posted": "2024-12-17T09:00:00Z",
             "average_rating": 4.8
+        }
+    },
+    {
+        "model": "blog.coffeepost",
+        "pk": 11,
+        "fields": {
+            "title": "Coffee Explorations from Kenya",
+            "slug": "kenya-coffee-explorations",
+            "description": "Kenyan coffee is known for its bright acidity and complex fruity notes. This post explores the unique growing regions and processing methods that result in Kenya's exceptional coffee flavors, perfect for those who enjoy an adventurous cup.",
+            "author": 2,
+            "featured_image": "",
+            "date_posted": "2024-12-27T08:00:00Z",
+            "average_rating": 4.7
+        }
+    },
+    {
+        "model": "blog.coffeepost",
+        "pk": 12,
+        "fields": {
+            "title": "Colombian Coffee Wonders",
+            "slug": "colombian-coffee-wonders",
+            "description": "Colombian coffee is celebrated worldwide for its smooth and rich profile, with hints of chocolate and nuts. This article delves into the heart of Colombia's coffee industry, highlighting the artisanal methods used by local farmers and how they ensure each cup delivers a premium experience.",
+            "author": 3,
+            "featured_image": "",
+            "date_posted": "2024-12-28T09:00:00Z",
+            "average_rating": 4.9
+        }
+    },
+    {
+        "model": "blog.coffeepost",
+        "pk": 13,
+        "fields": {
+            "title": "Vietnamese Coffee Culture",
+            "slug": "vietnamese-coffee-culture",
+            "description": "Vietnamese coffee stands out for its unique brewing methods and flavors. From traditional phin filters to the famous egg coffee, this post provides an in-depth look at Vietnam's coffee traditions and what makes them a must-try for coffee lovers around the globe.",
+            "author": 4,
+            "featured_image": "",
+            "date_posted": "2024-12-29T10:00:00Z",
+            "average_rating": 4.8
+        }
+    },
+    {
+        "model": "blog.coffeepost",
+        "pk": 14,
+        "fields": {
+            "title": "Brazilian Coffee Treasures",
+            "slug": "brazilian-coffee-treasures",
+            "description": "Brazil's coffee culture is as rich as its beans. Learn about the history of coffee in Brazil, its diverse growing regions, and how Brazilian coffee has become a staple in the global coffee market.",
+            "author": 5,
+            "featured_image": "",
+            "date_posted": "2024-12-30T11:00:00Z",
+            "average_rating": 4.6
         }
     }
 ]
