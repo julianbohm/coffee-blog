@@ -1,5 +1,10 @@
 from django import forms
-from .models import Comment
+from .models import Comment, CoffeePost
+
+class CoffeePostForm(forms.ModelForm):
+    class Meta:
+        model = CoffeePost
+        fields = ['title', 'description', 'featured_image']
 
 class CommentForm(forms.ModelForm):
     class Meta:

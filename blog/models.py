@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 from django.contrib.auth.models import User
 from django.db.models import Avg
 from cloudinary.models import CloudinaryField
@@ -10,7 +11,7 @@ class CoffeePost(models.Model):
     stores a single blog post related to :model:auth.user".
     """
     title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, blank=True, editable=False)
     description = models.TextField()
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
@@ -25,6 +26,11 @@ class CoffeePost(models.Model):
 
     def __str__(self):
         return f"{self.title} | written by {self.author}"
+
+    def save(self, *args, **kwargs):
+        if not self.slug: 
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 class Rating(models.Model):
     post = models.ForeignKey(CoffeePost, related_name='ratings', on_delete=models.CASCADE)
