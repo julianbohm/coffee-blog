@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="container py-5">
@@ -13,23 +14,73 @@
              alt="placeholder image">
     </div>
 
-    <!-- Post Metadata -->
-    <div class="d-flex justify-content-center mb-3">
-        <p class="me-3">
-            <strong>Author:</strong> <span class="text-muted">{{ post.author }}</span>
-        </p>
-        <p class="me-3">
-            <strong>Posted on:</strong> 
-            <time class="text-muted">{{ post.date_posted }}</time>
-        </p>
-        <p>
-            <strong>Rating:</strong> <span class="text-muted">{{ post.average_rating|default:"No rating yet" }}</span>
-        </p>
+    <!-- Average Rating -->
+    <div class="text-center mb-4">
+        <h2 class="text-muted">Average Rating: {{ post.average_rating|default:"No rating yet" }}</h2>
     </div>
 
-    <!-- Post Description -->
-    <div class="card shadow border-0 rounded-3 p-4">
-        <p class="text-muted mb-0">{{ post.description }}</p>
+    <!-- Posts -->
+    <div class="post-card card shadow border-0 rounded-3 p-4">
+        <div class="post-metadata d-flex justify-content-center mb-3">
+            <p class="me-3">
+                <strong>Author:</strong> <span class="text-muted">{{ post.author }}</span>
+            </p>
+            <p class="me-3">
+                <strong>Posted on:</strong> 
+                <time class="text-muted">{{ post.date_posted }}</time>
+            </p>
+        </div>
+        <div class="post-description">
+            <p class="text-muted mb-0">{{ post.description }}</p>
+        </div>
+        <hr class="my-3" />
+        <div class="post-rating text-center">
+            <p>
+                <strong>Rating:</strong> <span class="text-muted">{{ post.average_rating|default:"No rating yet" }}</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Comments Section -->
+    <div class="post-card card shadow border-0 rounded-3 p-4 mt-4">
+        <h2 class="text-center">Comments</h2>
+        <ul class="list-group mt-4">
+            {% for comment in post.comments.all %}
+                <li class="list-group-item">
+                    <p class="mb-1"><strong>{{ comment.author }}</strong>:</p>
+                    <p class="mb-1">{{ comment.content }}</p>
+                    {% if comment.rating %}
+                        <p class="mb-1"><strong>Rating:</strong> {{ comment.rating }}</p>
+                    {% else %}
+                        <p class="mb-1 text-muted">No rating provided.</p>
+                    {% endif %}
+                    <small class="text-muted">Posted on {{ comment.date_posted }}</small>
+                </li>
+            {% endfor %}
+        </ul>
+
+        {% if user.is_authenticated %}
+            <div class="mt-4">
+                {% if user_comment_exists %}
+                    <p class="text-muted">You have already commented on this post.</p>
+                {% else %}
+                    <h3 class="mb-3">Leave a comment:</h3>
+                    <form method="post" class="w-100">
+                        {% csrf_token %}
+                        {{ comment_form | crispy }}
+                        <div class="form-group mt-3">
+                            <label for="id_rating"><strong>Rating:</strong></label>
+                            {{ rating_form.rating }}
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                        </div>
+                    </form>
+                {% endif %}
+            </div>
+        {% else %}
+            <p class="text-muted mt-4">Log in to leave a comment</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
