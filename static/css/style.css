@@ -4,7 +4,7 @@
 :root {
     --deep-green: #394d39;
     --olive-green: #C7B878;
-    --gold: #E3AF3E;
+    --gold: #beab82;
     --dark-brown: #2F3E2E;
     --beige: #F3E9D2;
     text-decoration: none;
@@ -170,7 +170,6 @@ h2.card-title {
 
 /* Excerpt Styling */
 .card-text {
-    font-size: 0.9rem;
     color: var(--dark-brown);
     margin-top: 0.5rem;
     line-height: 1.4;

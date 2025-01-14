@@ -28,7 +28,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = SECRET_KEY = os.environ.get("DEBUG")
 
 ALLOWED_HOSTS = ['8000-julianbohm-coffeeblog-wn3p5pzxxtc.ws.codeinstitute-ide.net',
 '.herokuapp.com']
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary_storage',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -53,9 +54,9 @@ INSTALLED_APPS = [
     'welcome',
 ]
     
-
-LOGIN_REDIRECT_URL = '/welcome/'
-LOGOUT_REDIRECT_URL = '/welcome/'
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
