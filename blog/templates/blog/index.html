@@ -5,7 +5,7 @@
 <!-- index.html content starts here -->
 <div class="wrapper">
     <div class="container mt-5">
-        <div class="row g-4">
+        
             <!-- Welcome Title -->
             <h1 class="text-center display-4 mb-4">Welcome,</h1>
                 <p class="welcome">Welcome to the Coffee Lovers community! A community of passionate coffee enthusiasts who
@@ -13,8 +13,9 @@
                 to connect with others. Here, we celebrate the art, science, and joy of coffee. Whether you're a casual
                 sipper or a seasoned barista, this is your space to share your love of coffee with like-minded
                 individuals. Join us in exploring the endless possibilities of this beloved beverage!</p>
-         
-            <!-- Blog Entries Column -->
+       
+        <!-- Blog Entries -->
+        <div class="row g-4">
             {% for post in posts %}
             <div class="col-lg-6">
                 <div class="card shadow-sm border-0">
@@ -40,15 +41,11 @@
                     </div>
                 </div>
             </div>
-            {% if forloop.counter|divisibleby:3 %}
-        </div>
-        <div class="row">
-            {% endif %}
             {% endfor %}
-
         </div>
     </div>
 </div>
+
 {% if is_paginated %}
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">

@@ -20,7 +20,7 @@ def create_post(request):
     else:
         form = CoffeePostForm()
         rating_form = RatingForm()
-
+    print(f"Average rating for post {post.id}: {post.average_rating}")
     return render(request, 'blog/create_post.html', {
         'form': form,
         'rating_form': rating_form, })

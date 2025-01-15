@@ -5,6 +5,7 @@ class CoffeePostForm(forms.ModelForm):
     class Meta:
         model = CoffeePost
         fields = ['title', 'description', 'featured_image']
+        exclude = ['slug'] 
 
 class CommentForm(forms.ModelForm):
     class Meta:
