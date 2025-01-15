@@ -11,15 +11,19 @@ from .forms import CommentForm, RatingForm, CoffeePostForm
 def create_post(request):
     if request.method == "POST":
         form = CoffeePostForm(request.POST, request.FILES)
-        if form.is_valid():
+        rating_form = RatingForm(request.POST)
+        if form.is_valid() and rating_form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
             post.save()
             return redirect('user_profile')  
     else:
         form = CoffeePostForm()
+        rating_form = RatingForm()
 
-    return render(request, 'blog/create_post.html', {'form': form})
+    return render(request, 'blog/create_post.html', {
+        'form': form,
+        'rating_form': rating_form, })
 
 
 class PostList(generic.ListView):
@@ -38,15 +42,13 @@ def post_detail(request, slug):
 
     if request.method == "POST":
         if comment_form.is_valid() and request.user.is_authenticated:
-            # Save the comment
             new_comment = comment_form.save(commit=False)
             new_comment.post = post
-            new_comment.author = request.user  # Assign the logged-in user as the author
+            new_comment.author = request.user  
             new_comment.save()
 
         if rating_form.is_valid() and request.user.is_authenticated:
             rating = rating_form.cleaned_data['rating']
-            # Logic to handle the rating
 
         return redirect('blog/post_detail', slug=post.slug)
 

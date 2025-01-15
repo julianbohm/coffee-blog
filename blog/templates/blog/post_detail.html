@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-
 {% block content %}
+
+<!-- start post_detail-->
+<div class="wrapper">
 <div class="container py-5">
     <!-- Post Title -->
     <h1 class="display-4 text-center mb-4">{{ post.title }}</h1>
@@ -82,5 +84,6 @@
             <p class="text-muted mt-4">Log in to leave a comment</p>
         {% endif %}
     </div>
+</div>
 </div>
 {% endblock %}
