@@ -61,3 +61,6 @@ def user_profile(request):
         'user_posts': user_posts,
     }
     return render(request, 'blog/user_profile.html', context)
+
+def custom_404_view(request, exception):
+    return render(request, '404.html', status=404)
