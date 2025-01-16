@@ -2,28 +2,21 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib.auth.decorators import login_required
-from .models import CoffeePost, Comment
 from .forms import CommentForm, RatingForm, CoffeePostForm
+from .models import CoffeePost, Comment
 
 # Create your views here.
 
 @login_required
 def create_post(request):
-    if request.method == "POST":
-        form = CoffeePostForm(request.POST, request.FILES)
-        rating_form = RatingForm(request.POST)
-        if form.is_valid() and rating_form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
-            return redirect('user_profile')  
-    else:
-        form = CoffeePostForm()
-        rating_form = RatingForm()
-    print(f"Average rating for post {post.id}: {post.average_rating}")
-    return render(request, 'blog/create_post.html', {
-        'form': form,
-        'rating_form': rating_form, })
+    form = CoffeePostForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        post = form.save(commit=False)
+        post.author = request.user
+        post.save()
+        print(f"Average rating for post {post.id}: {post.average_rating}")
+        return redirect("post_detail", slug=post.slug) 
+    return render(request, "blog/create_post.html", {"form": form})
 
 
 class PostList(generic.ListView):
@@ -50,7 +43,7 @@ def post_detail(request, slug):
         if rating_form.is_valid() and request.user.is_authenticated:
             rating = rating_form.cleaned_data['rating']
 
-        return redirect('blog/post_detail', slug=post.slug)
+        return redirect('post_detail', slug=post.slug)
 
     context = {
         'post': post,

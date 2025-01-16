@@ -20,8 +20,11 @@
             <div class="col-lg-6">
                 <div class="card shadow-sm border-0">
                     <div class="text-center mb-4">
-                        <img class="card-img-top img-fluid rounded shadow"
-                            src="{% static 'images/coffee_default.jpg' %}" alt="placeholder image">
+                        {% if post.featured_image and post.featured_image.url and "placeholder" not in post.featured_image.url %}
+                        <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                        {% else %}
+                        <img class="card-img-top" src="{% static 'images/coffee_default.jpg' %}" alt="Default placeholder image">
+                        {% endif %}
                     </div>
 
                     <!-- Post Content -->
@@ -60,7 +63,5 @@
     </ul>
 </nav>
 {% endif %}
-</div>
-</div>
 <!-- index.html content ends here -->
 {% endblock %}

@@ -1,1 +1,1 @@
-web: gunicorn coffee-blog.wsgi
+web: gunicorn coffee_lovers_blog.wsgi
