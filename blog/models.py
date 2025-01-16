@@ -11,7 +11,7 @@ class CoffeePost(models.Model):
     stores a single blog post related to :model:auth.user".
     """
     title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True, blank=True, editable=False)
+    slug = models.SlugField(max_length=200, unique=True, blank=True,)
     description = models.TextField()
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
