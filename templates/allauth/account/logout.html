@@ -1,21 +1,33 @@
 {% extends "account/base.html" %}
-
 {% load i18n %}
+{% load account %}
+{% load crispy_forms_tags %}
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock head_title %}
 
-{% block content %}
-<h1>{% trans "Sign Out" %}</h1>
+{% block inner_content %}
+<!-- Banner -->
+<div class="wrapper">
+<div class="container-fluid bg-dark text-white text-center py-5">
+  <h1 class="display-4 fst-italic">{% trans "Coffee Lovers Blog" %}</h1>
+</div>
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+      <div class="card shadow-sm border-0">
+          <div class="card-body p-4">
+      <h1 class="mb-4">{% trans "Sign Out" %}</h1>
+      <p class="mb-4">{% trans 'Are you sure you want to sign out?' %}</p>
+      <form method="post" action="{% url 'account_logout' %}" autocomplete="off">
+        {% csrf_token %}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+        <button type="submit" class="btn btn-danger" aria-label="Sign Out">{% trans 'Sign Out' %}</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
 
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
-</form>
-
-
-{% endblock content %}
+{% endblock %}
