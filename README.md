@@ -8,7 +8,7 @@
 The Coffee Lover blog provides a space for coffee lovers to explore, discuss, and review and rate various coffee types, origens, and coffee shop recommendations. the user can create a librery of all the types of coffee that were memorable for good and bad, and share the experience. Built with Django and Bootstrap, it offers an intuitive user experience focused on engagement and knowledge-sharing.
 
 
-[Live Demo](https://coffee-blog-club-f5fa03120763.herokuapp.com/blog/profile/)
+[Live Demo](https://coffee-blog-club-f5fa03120763.herokuapp.com)
 
 ### Key Features
 
@@ -53,10 +53,30 @@ The Coffee Lover blog provides a space for coffee lovers to explore, discuss, an
    - [Acknowledgements](#acknowledgements)
 
 
-## Feautures
+## Features
 
-## User Experience
+## User Experience (UX)
+### User Stories
 
+### as a Visitor.
+- As a visitor, I want to register for an account, so I can engage with posts and share my own experiences.
+
+### as a User.
+
+- As a registered user, I want to create blog posts, so I can share my coffee experiences and recommendations.
+- As a registered user, I want to edit or delete my own posts, so I can update or remove content when needed.
+- As a registered user, I want to comment on blog posts, so I can engage in discussions with other coffee lovers.
+- As a registered user, I want to rate the coffee in my posts as well as the other users post, so at the end as a community we can have a general rate.
+
+### Admin Users
+- As an admin, I want to moderate blog posts, so I can ensure high-quality and appropriate content.
+- As an admin, I want to manage user comments, so I can remove any offensive or irrelevant content.
+- As an admin, I want to feature specific blog posts, so I can highlight valuable contributions from the community.
+
+### Blog Owner
+- As the blog owner, I want to create an online store, so I can sell different types of coffee and accessories to my audience.
+- As the blog owner, I want to offer subscription-based coffee deliveries, so users can receive curated coffee selections regularly.
+- 
 ## Technologies Used
 
 ### Languages and Frameworks
