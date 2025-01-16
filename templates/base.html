@@ -1,5 +1,4 @@
 {% load static %}
-
 {% url 'home' as home_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
@@ -7,15 +6,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block extra_head %}
+    {% endblock extra_head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
-    <title>Coffe Lovers</title>
-
+    <title>{% block head_title %}Coffee Lovers{% endblock head_title %}</title>
+    
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -50,7 +51,12 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" href="{% url 'register' %}">Register</a>
+                        <a class="nav-link {% if request.path == 'login_url' %}active{% endif %}" href="{% url 'account_login' %}">
+                            Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -63,7 +69,7 @@
     {% block content %}
     <!-- Content Goes here -->
     {% endblock content %}
-   
+
 
     <!-- Footer Section -->
     <footer class="bg-dark text-white text-center py-3">
@@ -83,7 +89,7 @@
             </a>
         </p>
     </footer>
-       
+
 
     <!-- Bootstrap JS and Popper.js (CDN version) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
