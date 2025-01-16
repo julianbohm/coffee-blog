@@ -44,20 +44,23 @@ The Coffee Lover blog provides a space for coffee lovers to explore, discuss, an
    - [Imagery](#imagery)
    - [User Stories](#user-stories)
    - [Wireframes](#wireframes)
-3. [Information Architecture](#information-architecture)
-   - [Flowchart](#flowchart)
-   - [Database Schema Diagram](#database-schema-diagram)
-4. [Technologies Used](#technologies-used)
-5. [Deployment](#deployment)
-6. [Testing](#testing)
-7. [Future Features](#future-features)
-8. [Credits](#credits)
+3. [Technologies Used](#technologies-used)
+4. [Deployment](#deployment)
+5. [Testing](#testing)
+6. [Future Features](#future-features)
+7. [Credits](#credits)
    - [Resources Used](#resources-used)
    - [Acknowledgements](#acknowledgements)
+
+
+## Feautures
+
+## User Experience
 
 ## Technologies Used
 
 ### Languages and Frameworks
+
 
 - **Python** - Back-end development
 - **Django** - Web framework
@@ -74,5 +77,19 @@ The Coffee Lover blog provides a space for coffee lovers to explore, discuss, an
 - **Django Crispy Forms** - Form styling
 - **Lucidchart** - Flowchart and wireframes
 - **Balsamiq** - UX design
+
+## Deployment
+
+## Testing
+
+## Future Features
+
+## Credits
+
+### Resources Used
+
+### Acknowledgements 
+
+
 
 
