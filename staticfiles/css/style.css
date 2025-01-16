@@ -1,0 +1,223 @@
+/* Blog Stylesheet with Bootstrap Integration */
+
+/* Root Variables */
+:root {
+    --deep-green: #394d39;
+    --olive-green: #C7B878;
+    --gold: #beab82;
+    --dark-brown: #2F3E2E;
+    --beige: #F3E9D2;
+    text-decoration: none;
+}
+
+/* Bootstrap Overrides */
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--beige);
+    color: var(--dark-brown);
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--deep-green) !important;
+    border-bottom: 2px solid var(--gold);
+}
+
+.navbar-brand {
+    color: var(--beige) !important;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: var(--beige) !important;
+    margin-right: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--gold) !important;
+}
+
+.navbar-toggler {
+    border-color: var(--beige);
+}
+
+.navbar-toggler-icon {
+    color: var(--beige);
+}
+
+.navbar-text {
+    color: var(--beige) 
+}
+
+/* Main Content Section */
+.container {
+    
+    flex: 1; 
+    background-color: var(--olive-green);
+    color: var(--deep-green);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden; 
+    width: 100%; 
+    }
+
+
+.container h2 {
+    color: var(--deep-green);
+}
+
+.container p {
+    line-height: 1.6;
+    font-size: large;
+}
+
+.card-body {
+    background-color: var(--gold);
+    color: var(--deep-green);
+    text-align: center;
+    padding: 50px;
+    margin: 10px;
+}
+
+/* For images in the post detail page */
+.card-img-top {
+ max-width: 100%; 
+max-height: 100%; 
+height: auto; 
+width: auto; 
+padding-top: 5%;
+padding-left: 20%;
+padding-right: 20%;
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--dark-brown);
+    color: var(--beige);
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 2px solid var(--gold);
+    position: relative; /* Default position */
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn {
+    background-color:  var(--deep-green);
+    color: var(--gold);
+    border: none;
+    margin:  4px;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--olive-green);
+    color: var(--beige);
+}
+
+form {
+    background-color: var(--olive-green);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    max-width: 500px;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: var(--beige);
+    color: var(--dark-brown);
+    font-family: 'Roboto', sans-serif;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Pagination */
+.pagination .page-link {
+    background-color: var(--deep-green);
+    color: var(--gold);
+    border: none;
+    border-radius: 4px;
+    margin: 0 2px;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--olive-green);
+    color: var(--beige);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--gold);
+    color: var(--deep-green);
+}
+
+/* Post Titles */
+h2.card-title {
+    font-size: 1.5rem;
+    color: var(--dark-brown);
+}
+
+
+/* Card Styling */
+.card {
+    border: 3px solid var(--gold);
+    border-radius: 8px;  
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+/* Excerpt Styling */
+.card-text {
+    color: var(--dark-brown);
+    margin-top: 0.5rem;
+    line-height: 1.4;
+}
+
+@media (max-width: 300px) {
+    .card-text {
+        display: none;
+    }
+    .btn {
+        font-size: 0.85rem;
+    }
+    .card-title {
+        font-size: 1rem;
+    }
+}
