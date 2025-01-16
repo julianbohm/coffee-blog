@@ -18,7 +18,7 @@
         <div class="row g-4">
             {% for post in posts %}
             <div class="col-lg-6">
-                <div class="card shadow-sm border-0">
+                <div class="card h-100 shadow-sm border-0">
                     <div class="text-center mb-4">
                         {% if post.featured_image and post.featured_image.url and "placeholder" not in post.featured_image.url %}
                         <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
