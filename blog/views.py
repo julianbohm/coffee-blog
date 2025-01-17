@@ -2,28 +2,42 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CommentForm, RatingForm, CoffeePostForm
-from .models import CoffeePost, Comment
+from .models import CoffeePost, Comment, Rating
 
 # Create your views here.
 
 @login_required
 def create_post(request):
-    form = CoffeePostForm(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        post = form.save(commit=False)
+    post_form = CoffeePostForm(request.POST or None, request.FILES or None)
+    rating_form = RatingForm(request.POST or None)
+
+    if post_form.is_valid() and rating_form.is_valid():
+        post = post_form.save(commit=False)
         post.author = request.user
         post.save()
-        print(f"Average rating for post {post.id}: {post.average_rating}")
-        return redirect("post_detail", slug=post.slug) 
-    return render(request, "blog/create_post.html", {"form": form})
+
+        rating = rating_form.save(commit=False)
+        rating.post = post
+        rating.user = request.user
+        rating.save()
+
+        return redirect("post_detail", slug=post.slug)
+
+    return render(request, "blog/create_post.html", {
+        "form": post_form,
+        "rating_form": rating_form,
+    })
 
 
-class PostList(generic.ListView):
+class PostList(LoginRequiredMixin, generic.ListView):
     model = CoffeePost
-    context_object_name = 'posts'
+    context_object_name = "posts"
     paginate_by = 9
     template_name = "blog/index.html"
+    login_url = "/accounts/login/"  
+    redirect_field_name = "next" 
 
 @login_required
 def post_detail(request, slug):
