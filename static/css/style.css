@@ -141,7 +141,9 @@ footer p {
 }
 
 form {
-    background-color: var(--olive-green);
+    background-color: #6f4e37;
+    color: whitesmoke;
+    font-size:large;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
