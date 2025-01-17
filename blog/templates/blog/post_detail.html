@@ -11,9 +11,11 @@
 
     <!-- Post Image -->
     <div class="text-center mb-4">
-        <img class="card-img-top img-fluid rounded shadow" 
-             src="{% static 'images/coffee_default.jpg' %}" 
-             alt="placeholder image">
+        {% if post.featured_image and post.featured_image.url and "placeholder" not in post.featured_image.url %}
+        <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+        {% else %}
+        <img class="card-img-top" src="{% static 'images/coffee_default.jpg' %}" alt="Default placeholder image">
+        {% endif %}
     </div>
 
     <!-- Average Rating -->
