@@ -127,6 +127,7 @@ footer p {
 .btn {
     background-color:  var(--deep-green);
     color: var(--gold);
+    font-size: larger;
     border: none;
     margin:  4px;
     padding: 0.5rem 1rem;
