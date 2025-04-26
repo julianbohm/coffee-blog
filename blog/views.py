@@ -10,20 +10,32 @@ from .models import CoffeePost, Comment, Rating
 
 @login_required
 def create_post(request):
-    post_form = CoffeePostForm(request.POST or None, request.FILES or None)
-    rating_form = RatingForm(request.POST or None)
+    if request.method == "POST":
+        post_form = CoffeePostForm(request.POST, request.FILES)
+        rating_form = RatingForm(request.POST)
 
-    if post_form.is_valid() and rating_form.is_valid():
-        post = post_form.save(commit=False)
-        post.author = request.user
-        post.save()
+        if post_form.is_valid() and rating_form.is_valid():
+            try:
+                post = post_form.save(commit=False)
+                post.author = request.user
+                post.save()
 
-        rating = rating_form.save(commit=False)
-        rating.post = post
-        rating.user = request.user
-        rating.save()
+                rating = rating_form.save(commit=False)
+                rating.post = post
+                rating.user = request.user
+                rating.save()
 
-        return redirect("post_detail", slug=post.slug)
+                messages.success(request, "Your post was created successfully!")
+                return redirect("post_detail", slug=post.slug)
+
+            except Exception as e:
+                messages.error(request, f"An error occurred while saving your post: {e}")
+                return redirect("create_post")
+        else:
+            messages.error(request, "Please correct the errors below.")
+    else:
+        post_form = CoffeePostForm()
+        rating_form = RatingForm()
 
     return render(request, "blog/create_post.html", {
         "form": post_form,
