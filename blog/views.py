@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages  
 from .forms import CommentForm, RatingForm, CoffeePostForm
 from .models import CoffeePost, Comment, Rating
 
@@ -63,11 +64,16 @@ def post_detail(request, slug):
         if comment_form.is_valid() and request.user.is_authenticated:
             new_comment = comment_form.save(commit=False)
             new_comment.post = post
-            new_comment.author = request.user  
+            new_comment.author = request.user
             new_comment.save()
 
         if rating_form.is_valid() and request.user.is_authenticated:
-            rating = rating_form.cleaned_data['rating']
+            rating_value = rating_form.cleaned_data['rating']
+            Rating.objects.create(
+                post=post,
+                user=request.user,
+                rating=rating_value
+            )
 
         return redirect('post_detail', slug=post.slug)
 
