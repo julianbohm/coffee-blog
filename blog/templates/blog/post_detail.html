@@ -20,7 +20,7 @@
 
     <!-- Average Rating -->
     <div class="text-center mb-4">
-        <h2 class="text-muted">Total Rating: {{ post.average_rating|default:"No rating yet" }}</h2>
+        <p>Average Rating: {{ post.get_average_rating }}</p>
     </div>
 
     <!-- Posts -->
