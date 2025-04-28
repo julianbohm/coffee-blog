@@ -18,6 +18,7 @@ class CoffeePost(models.Model):
     )
     featured_image = CloudinaryField('image', default='placeholder')
     date_posted = models.DateTimeField(auto_now_add=True)
+    post_rating = models.IntegerField(default=0)
     average_rating = models.FloatField(default=0.0)
 
     class Meta:
@@ -32,8 +33,10 @@ class CoffeePost(models.Model):
         super().save(*args, **kwargs)
 
     def update_average_rating(self):
-        all_ratings = list(self.ratings.values_list('stars', flat=True)) + list(
-            self.comments.exclude(rating__isnull=True).values_list('rating', flat=True)
+        all_ratings = (
+            [self.post_rating] +  
+            list(self.ratings.values_list('stars', flat=True)) +
+            list(self.comments.exclude(rating__isnull=True).values_list('rating', flat=True))
         )
         if not all_ratings:
             self.average_rating = 0

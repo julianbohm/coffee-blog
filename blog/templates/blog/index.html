@@ -41,6 +41,9 @@
                         <p class="mb-0 text-muted">
                             <strong>Rating:</strong> {{ post.average_rating|default:"No rating yet" }}
                         </p>
+                        <p class="mb-0 text-muted">
+                            <strong>Average Community Rating:</strong> {{ post.average_rating|floatformat:1 }}
+                        </p>
                     </div>
                 </div>
             </div>

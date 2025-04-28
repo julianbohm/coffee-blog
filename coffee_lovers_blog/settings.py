@@ -37,7 +37,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-4p%h+z@q+#h1a0x8@v&7y
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost',
 '.herokuapp.com']
@@ -175,4 +176,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 

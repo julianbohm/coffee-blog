@@ -3,24 +3,30 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<!-- start post_detail-->
+<!-- start post_detail -->
 <div class="wrapper">
 <div class="container py-5">
+
     <!-- Post Title -->
     <h1 class="display-4 text-center mb-4">{{ post.title }}</h1>
 
     <!-- Post Image -->
     <div class="text-center mb-4">
         {% if post.featured_image and post.featured_image.url and "placeholder" not in post.featured_image.url %}
-        <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+            <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
         {% else %}
-        <img class="card-img-top" src="{% static 'images/coffee_default.jpg' %}" alt="Default placeholder image">
+            <img class="card-img-top" src="{% static 'images/coffee_default.jpg' %}" alt="Default placeholder image">
         {% endif %}
     </div>
 
-    <!-- Average Rating -->
+    <!-- Post Author's Own Rating -->
     <div class="text-center mb-4">
-        <p>Average Rating: {{ post.get_average_rating }}</p>
+        <p><strong>Author's Rating:</strong> {{ post.post_rating|default:"No rating yet" }} ⭐</p>
+    </div>
+
+    <!-- Community Average Rating -->
+    <div class="text-center mb-4">
+        <p><strong>Community Average:</strong> {{ post.average_rating|floatformat:1 }} ⭐</p>
     </div>
 
     <!-- Posts -->
@@ -34,15 +40,13 @@
                 <time class="text-muted">{{ post.date_posted }}</time>
             </p>
         </div>
+
         <div class="post-description">
             <p class="text-muted mb-0">{{ post.description }}</p>
         </div>
+
         <hr class="my-3" />
-        <div class="post-rating text-center">
-            <p>
-                <strong>Rating:</strong> <span class="text-muted">{{ post.average_rating|default:"No rating yet" }}</span>
-            </p>
-        </div>
+
     </div>
 
     <!-- Comments Section -->
@@ -71,7 +75,7 @@
                     <h3 class="mb-3">Leave a comment:</h3>
                     <form method="post" class="w-100">
                         {% csrf_token %}
-                        {{ comment_form | crispy }}
+                        {{ comment_form|crispy }}
                         <div class="form-group mt-3">
                             <label for="id_rating"><strong>Rating:</strong></label>
                             {{ rating_form.rating }}
@@ -84,6 +88,7 @@
             </div>
         {% endif %}
     </div>
+
 </div>
 </div>
 {% endblock %}
