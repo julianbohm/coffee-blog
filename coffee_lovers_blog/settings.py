@@ -37,7 +37,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-4p%h+z@q+#h1a0x8@v&7y
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost',
 '.herokuapp.com']
@@ -89,7 +89,7 @@ ROOT_URLCONF = 'coffee_lovers_blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-         'DIRS': [
+        'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'templates', 'allauth'),
         ],
