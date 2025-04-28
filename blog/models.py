@@ -34,7 +34,6 @@ class CoffeePost(models.Model):
 
     def update_average_rating(self):
         all_ratings = (
-            [self.post_rating] +  
             list(self.ratings.values_list('stars', flat=True)) +
             list(self.comments.exclude(rating__isnull=True).values_list('rating', flat=True))
         )

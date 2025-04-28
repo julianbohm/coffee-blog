@@ -19,12 +19,16 @@ def create_post(request):
             try:
                 post = post_form.save(commit=False)
                 post.author = request.user
+                post.post_rating = rating_form.cleaned_data['stars']
                 post.save()
 
                 rating = rating_form.save(commit=False)
                 rating.post = post
                 rating.user = request.user
+                rating.stars = rating_form.cleaned_data['stars']
                 rating.save()
+
+                post.update_average_rating()
 
                 messages.success(request, "Your post was created successfully!")
                 return redirect("post_detail", slug=post.slug)
