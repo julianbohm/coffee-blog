@@ -37,9 +37,13 @@
                             Read More
                         </a>
                     </div>
+                    <!-- Post Author's Own Rating -->
+                    <div class="text-center mb-4">
+                        <p><strong>Author's Rating:</strong> {{ post.post_rating|default:"No rating yet" }} ⭐</p>
+                    </div>
                     <div class="card-footer bg-light text-center">
                         <p class="mb-0 text-muted">
-                            <strong>Community Rating:</strong> {{ post.average_rating|floatformat:1 }}
+                            <strong>Community Rating:</strong> {{ post.average_rating|floatformat:1 }} ⭐
                         </p>
                     </div>
                 </div>
