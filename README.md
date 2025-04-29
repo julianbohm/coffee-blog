@@ -47,8 +47,6 @@ The Coffee Lover blog provides a space for coffee lovers to explore, discuss, an
   - Users can comment, rate and blog posts from oder users.
   - Comments section allows discussion and exchange of coffee experiences.
 
-- **Featured Articles and Recommendations**
-  - Curated lists of must-try coffee beans, and cafés.
 
 - **Admin Panel for Content Moderation**
   - Admins can manage posts, comments, rates and user interactions.
@@ -196,9 +194,27 @@ Under "Settings," add "heroku/python" as the buildpack.
 
 Click "Open App" in Heroku to verify everything works correctly.
 
+## Testing
+
+### Lighthaus test
+![Lighthaus Test](readme_assets/lighthaus_test.png)
+
+### CSS test validation
+![CSS Test validation](readme_assets/css_checker.png)
+
+### HTML test validation
+- Trailing slash on void elements is the only error from the HTML validator, but because its a html pag pre-setup by Allauth, I decided to leave it, since it does not afect the site.
+![HTML Test validation](readme_assets/html_validator.png)
+
+### Manual Testing
+See full manual testing evidence here: [Testing Documentation](testing.md)
+
+
 ## Known Issues and Future Features
 ### Future Features
 
+- **Featured Articles and Recommendations**
+  - Curated lists of must-try coffee beans, and cafés.
 - **Monthly Subscription Plan**  
   Introduce a monthly subscription service that sends a curated selection of coffee for users to try.
 
@@ -212,9 +228,11 @@ Click "Open App" in Heroku to verify everything works correctly.
 
 - **404 Page Not Responding**  
   A custom 404 page was added, but it is not displaying as expected.
+  Update: now ist fully responsive.
 
 - **Rating Average Feature**  
   The rating average functionality needs to be reviewed and tested for accuracy.
+  Update: now is fully responsive.
 
 - **Welcome App**  
   The welcome app was present but do to a bug that can not be resolve in time, was deleted, and change for Allauth package.
