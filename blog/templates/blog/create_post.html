@@ -3,6 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<!-- Main wrapper for spacing -->
 <div class="wrapper">
 <div class="container mt-5">
     <h1 class="text-center mb-4">Create a New Post</h1>
@@ -12,6 +13,7 @@
                 {% csrf_token %}
                 {{ form|crispy }}
                 {{ rating_form|crispy }}
+                <!-- Submit button -->
                 <button type="submit" class="btn btn-primary w-100">Submit</button>
             </form>
         </div>

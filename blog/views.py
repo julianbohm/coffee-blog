@@ -28,7 +28,7 @@ def create_post(request):
                 rating.stars = rating_form.cleaned_data['stars']
                 rating.save()
 
-                post.update_average_rating()
+                post.update_average_rating() # Update post's average rating
 
                 messages.success(request, "Your post was created successfully!")
                 return redirect("post_detail", slug=post.slug)
@@ -49,6 +49,9 @@ def create_post(request):
 
 
 class PostList(LoginRequiredMixin, generic.ListView):
+    """
+    View to list all blog posts on the homepage.
+    """
     model = CoffeePost
     context_object_name = "posts"
     paginate_by = 9
@@ -58,6 +61,9 @@ class PostList(LoginRequiredMixin, generic.ListView):
 
 @login_required
 def post_detail(request, slug):
+    """
+    Display the detail page of a single blog post, including comments and ratings.
+    """
     post = get_object_or_404(CoffeePost, slug=slug)
     comments = Comment.objects.filter(post=post)
 
@@ -91,6 +97,9 @@ def post_detail(request, slug):
 
 @login_required
 def user_profile(request):
+    """
+    Display the profile page with all posts made by the logged-in user.
+    """
     user_posts = CoffeePost.objects.filter(author=request.user)
     context = {
         'user': request.user,
@@ -99,4 +108,7 @@ def user_profile(request):
     return render(request, 'blog/user_profile.html', context)
 
 def custom_404_view(request, exception):
+    """
+    Custom 404 error page view.
+    """
     return render(request, '404.html', status=404)
